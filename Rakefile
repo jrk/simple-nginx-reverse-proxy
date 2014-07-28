@@ -13,7 +13,7 @@ namespace :nginx do
   task :install do
     nginx_path = `which nginx`
     if nginx_path.nil? || nginx_path.empty?
-      system("sudo port install nginx +ssl")
+      system("brew install nginx")
     end
     if !File.exist?("#{BASE_DIR}/pem/nginx.pem")
       Dir.chdir("#{BASE_DIR}/pem") do
